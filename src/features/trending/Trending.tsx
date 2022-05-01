@@ -1,7 +1,16 @@
-import { Link, Route, Routes, useLocation } from "react-router-dom"
+import { useEffect } from "react"
+import { Link, Route, Routes, useLocation, useNavigate } from "react-router-dom"
 import { BoxHeader } from "../../ui/BoxHeader"
 import { TabGroup } from "../../ui/TabGroup"
 import { TrendingRepositories } from "../trending-repositories/TrendingRepositories"
+
+function Redirect({ to }: { to: string }) {
+  let navigate = useNavigate()
+  useEffect(() => {
+    navigate(to)
+  })
+  return null
+}
 
 export function Trending() {
   const location = useLocation()
@@ -26,7 +35,7 @@ export function Trending() {
         />
       </BoxHeader>
       <Routes>
-        <Route index element={<TrendingRepositories />} />
+        <Route index element={<Redirect to="/repositories" />} />
         <Route path="/repositories" element={<TrendingRepositories />} />
       </Routes>
     </div>
