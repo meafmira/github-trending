@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import { TrendingRepositories } from "./features/trending-repositories/TrendingRepositories"
+import { BoxHeader } from "./ui/BoxHeader"
+import { TabGroup } from "./ui/TabGroup"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-slate-900 w-screen min-h-screen p-10">
+      <div className="max-w-4xl mx-auto">
+        <BoxHeader>
+          <TabGroup
+            tabs={[{ label: "Repositories", value: "repositories" }]}
+            activeTab="repositories"
+          />
+        </BoxHeader>
+        <TrendingRepositories />
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
