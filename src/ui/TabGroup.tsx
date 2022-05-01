@@ -10,7 +10,7 @@ export interface TabGroupProps {
   tabs: TabOption[]
   activeTab?: string
   onChange?: (value: string) => void
-  renderTab?: (tab: React.ReactNode) => React.ReactNode
+  renderTab?: (tab: React.ReactNode, tabOption: TabOption) => React.ReactNode
 }
 
 export function TabGroup({
@@ -39,6 +39,7 @@ export function TabGroup({
           >
             {tab.label}
           </Tab>,
+          tab,
         ),
       )}
     </nav>
