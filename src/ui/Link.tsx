@@ -15,7 +15,7 @@ export function Link({
   return (
     <Component
       href={href}
-      className="text-blue-500 text-xl font-semibold"
+      className="text-blue-500 text-xl font-semibold hover:underline"
       {...props}
     >
       {children}
